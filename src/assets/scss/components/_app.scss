@@ -1,0 +1,55 @@
+body.w-sidebar-open {
+    .main .content {
+        display: none;
+    }
+}
+
+// this container is located in routers/AppRouter.js
+.app-container {
+
+    .main {
+        display: flex;
+        color: $light-2;
+
+        .content {
+            flex: 1;
+            padding: $padding-md;
+            padding-top: $padding-sm;
+            background-color: $dark-3;
+            position: relative;
+            z-index: 0;
+      
+	        @include respond-above(lg) {
+              margin-left: $sidebar-width;
+            }
+
+            &:before {
+                content: '';
+                background-color: $purple;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 150px;
+                z-index: -1;
+            }
+
+            .page-title {
+                color: $light;
+				margin-top: 2rem;
+				.goback {
+					cursor: pointer;
+					.goback-icon {
+						font-size: 2.5rem;
+						margin-right: 1rem;
+					}
+					.goback-text {
+						font-family: $serif;
+						font-size: 3rem;
+					}
+				}
+            }
+        }
+    }
+    
+}

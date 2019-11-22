@@ -1,0 +1,101 @@
+input, select {
+	box-sizing: border-box;
+	display: block;
+	font-size: 1.8rem;
+	width: 100%;
+	padding: 1rem 2rem;
+	border: 1.5px solid #465059;
+	background-color: transparent;
+	color: $light;
+	border-radius: 3px;
+	line-height: 1.2;
+	-webkit-transition: color .3s ease-in-out,border-color .3s ease-in-out;
+	transition: color .3s ease-in-out,border-color .3s ease-in-out;
+	
+	&:focus {
+		outline: none;
+		border-color: $purple-light;
+	}
+
+	&::placeholder {
+		color: $light-2;
+		opacity: 0.5;
+	}
+
+}
+
+select {
+	width: 100%;
+	color: $light-2;
+	appearance: none;
+}
+@supports (-moz-appearance:none) {
+    select {
+		color: $light-2;
+		background: $dark;
+    }
+}
+/* CAUTION: IE hackery ahead */
+select::-ms-expand { 
+    display: none; /* remove default arrow on ie10 and ie11 */
+}
+/* target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+    select {
+        background:none\9;
+        padding: 5px\9;
+    } 
+}
+
+label {
+	font-size: 1.8rem;
+}
+
+.input-w-icon-container {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	position: relative;
+
+	&__icon {
+		position: absolute;
+		right: 0;
+		padding: 0 2rem;
+		color: $light-2;
+		opacity: 0.5;
+	}
+}
+
+.input-group {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	&__item-50 {
+		flex-basis: 49%;
+		@include respond-below(md) {
+			flex-basis: 100%;
+
+			&:not(:last-child){
+				margin-bottom: 2rem;
+			}
+		}
+	}
+}
+
+input[type="file"] {
+	opacity: 0;
+	position: absolute;
+	pointer-events: none;
+	// alternative to pointer-events, compatible with all browsers, just make it impossible to find
+	width: 1px;
+	height: 1px;
+}
+.input-file-upload {
+	label {
+		margin-top: 2rem;
+	}
+	&__filename {
+		margin-left: 2rem;
+	}
+}

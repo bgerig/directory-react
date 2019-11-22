@@ -1,0 +1,33 @@
+.btn {
+	padding: 1rem 2rem;
+	border: none;
+	border-radius: 3px;
+	padding: 1.5rem 2rem;
+	// height: 5rem;
+	font-family: $serif;
+	font-size: 1.8rem;
+	text-transform: lowercase;
+	cursor: pointer;
+	
+	&-primary {
+		background: $purple-gradient;
+		// border: 2px solid $purple;
+		color: $light;
+	}
+	&-secondary {
+		background: $light;
+		// border: 2px solid $light;
+		color: $purple;
+	}
+	&-outline {
+		background: transparent;
+		border: 2px solid $purple;
+		color: $purple;
+	}
+}
+
+.btn-group {
+	button:not(:last-child) {
+		margin-right: $margin-sm;
+	}
+}

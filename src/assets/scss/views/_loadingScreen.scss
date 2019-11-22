@@ -1,0 +1,14 @@
+.loading-screen {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 90vh;
+
+	&__inner {
+
+	}
+	&__loader img {
+		height: 50px;
+		width: 50px;
+	}
+}
