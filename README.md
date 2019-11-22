@@ -1,8 +1,7 @@
+## Demo
+
+You can check the demo version on this app [here](https://staff-directory-react.herokuapp.com/).
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-### Middlewares Used for Redux
-
-thunk
 
 ## Available Scripts
 
