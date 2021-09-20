@@ -13,7 +13,7 @@
     "express-favicon": "^2.0.1",
     "firebase": "^5.8.0",
     "history": "^4.7.2",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
