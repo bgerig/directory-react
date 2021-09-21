@@ -1,11 +1,8 @@
-body.w-sidebar-open {
-    .main .content {
-        display: none;
-    }
-}
-
 // this container is located in routers/AppRouter.js
 .app-container {
+    &.w-sidebar-open .main .content {
+        display: none;
+    }
 
     .main {
         display: flex;
