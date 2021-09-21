@@ -1,15 +1,12 @@
-// Filters reducer
-
-const filtersReducerDefaultState = {
+const defaultState = {
 	text: '',
 	sortBy: 'firstName',
 	sortRoomsBy: 'roomName',
 	sortOtherBy: 'otherName'
 };
 
-// Params (Obj: state of filters object, Obj: action)
-export const filtersReducer = (state = filtersReducerDefaultState, action) => {
-	switch(action.type){
+export const filtersReducer = (state = defaultState, action) => {
+	switch (action.type) {
 		case 'TEXT_FILTER':
 			return {...state, text: action.text};
 		case 'SORT_BY_FIRST_NAME':
