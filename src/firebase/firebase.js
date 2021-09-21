@@ -15,7 +15,7 @@ const config = {
 };
 firebase.initializeApp(config);
 
-// Get the Database service
+// Get the database and storage services
 const database = firebase.database();
 const storage = firebase.storage();
 
