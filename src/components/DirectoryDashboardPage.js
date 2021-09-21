@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import EntryList from './EntryList';
 import EntryListFilters from './EntryListFilters';
 import Header from './Header';
 import Sidebar from './Sidebar';
 
-class DirectoryDashboardPage extends Component {
-  render() {
-    return (
-      <div className="app-container">
+const DirectoryDashboardPage = (props) => {
+  const { isSidebarOpen } = props;
+
+  return (
+    <div className={`app-container ${isSidebarOpen ? "w-sidebar-open" : ""}`}>
           <Header />
           <div className="main">
               <Sidebar />
@@ -20,8 +22,13 @@ class DirectoryDashboardPage extends Component {
               </div>
           </div>
       </div>
-    );
-  }
+  )
 }
 
-export default DirectoryDashboardPage;
+const mapStateToProps = (state, props) => {
+  return {
+    isSidebarOpen: state.tools.sidebar === 'open'
+  }
+};
+
+export default connect(mapStateToProps)(DirectoryDashboardPage);
