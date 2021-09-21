@@ -1,18 +1,16 @@
-import { Component } from 'react';
-import { withRouter } from 'react-router';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-// <ScrollToTop> component  will scroll the window up on every navigation.
-// this fixes the issue when you have a long content page and you navigate to, it stays scrolled down
+// using ScrollToTop makes the window scroll to the top on every navigation
+// this fixes the issue where the page stays scrolled down when navigating
 // https://reacttraining.com/react-router/web/guides/scroll-restoration/scroll-to-top
-class ScrollToTop extends Component {
-	componentDidUpdate(prevProps) {
-		if (this.props.location !== prevProps.location) {
-			window.scrollTo(0, 0);
-		}
-	}
 
-	render() {
-		return this.props.children;
-	}
+export default function ScrollToTop() {
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
+
+	return null;
 }
-export default withRouter(ScrollToTop);
