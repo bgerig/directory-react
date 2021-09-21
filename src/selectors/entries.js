@@ -34,10 +34,9 @@ export const getVisibleEntries = (entries, filters, entryType, team) => {
 			let matchesTeam = true;
 			if (team !== 'all') {
 				// set to true if entry has a team that matches the 'team' passed
-				matchesTeam = entry.team && entry.team.forEach(element => {
-					if (element.value === team) return true;
-				});
+				matchesTeam = entry.team && !!entry.team.find(element => element.value === team);
 			}
+			
 			return matchesQuery && matchesTeam && matchesEntryType;
 		} else {
 			return matchesQuery && matchesEntryType;
