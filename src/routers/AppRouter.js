@@ -1,6 +1,6 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
-import createHistory from "history/createBrowserHistory";
+import { createBrowserHistory } from "history";
 import PrivateRoute from "./PrivateRoute";
 import ScrollToTop from "../components/ScrollToTop";
 import DirectoryDashboardPage from "../components/DirectoryDashboardPage";
@@ -14,7 +14,7 @@ import LoginPage from "../components/LoginPage";
 import NotFoundPage from "../components/NotFoundPage";
 
 // creates a history object using the history API
-export const history = createHistory();
+export const history = createBrowserHistory();
 
 const AppRouter = () => (
     // instead of using <BrowserRouter> which comes with its own history object, we use <Router> and pass our own custom history object
