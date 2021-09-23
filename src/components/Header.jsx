@@ -24,22 +24,24 @@ const Header = (props) => {
                 </div>
             </div>
             <div className="header__logo">
-                <a href="https://staff-directory-react.herokuapp.com/" target="_blank" rel="noopener noreferrer">
+                <a href="/">
                     <img src={logo} alt="Logo" />
                 </a>
             </div>
             <div className="header__admin">
-                {isAuthenticated ?
-                    <button onClick={startLogout} className="btn btn-secondary">sign out</button>
-                :
+                {isAuthenticated ? (
+                    <button onClick={startLogout} className="btn btn-secondary">
+                        sign out
+                    </button>
+                ) : (
                     <NavLink to="/login">
                         <button className="btn btn-secondary">sign in</button>
                     </NavLink>
-                }
+                )}
             </div>
         </header>
     );
-}
+};
 
 const mapStateToProps = (state) => {
     return {
