@@ -1,8 +1,8 @@
-import React from 'react';
-import EntryList from './EntryList';
-import EntryListFilters from './EntryListFilters';
-import Header from './Header';
-import Sidebar from './Sidebar';
+import React from "react";
+import EntryList from "./EntryList";
+import EntryListFilters from "./EntryListFilters";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 const RoomsPage = (props) => (
     <div className="app-container">
@@ -14,9 +14,10 @@ const RoomsPage = (props) => (
                     <h2>Rooms</h2>
                 </div>
                 <EntryListFilters type="room" />
-                <EntryList type="room" /> {/* we pass 'type' as a prop in order to render entries based on entryType (person, room. other)  */}
+                <EntryList type="room" />
             </div>
         </div>
     </div>
 );
+
 export default RoomsPage;

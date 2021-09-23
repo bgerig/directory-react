@@ -1,21 +1,21 @@
-import firebase from 'firebase/app';
-import 'firebase/database';
-import 'firebase/storage';
-import 'firebase/auth';
+import firebase from "firebase/app";
+import "firebase/database";
+import "firebase/storage";
+import "firebase/auth";
 
 // firebase configuration parameters
 // values are pulled from the .env file located at the root of the app
 const config = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
 };
 firebase.initializeApp(config);
 
-// Get the Database service
+// Get the database and storage services
 const database = firebase.database();
 const storage = firebase.storage();
 
@@ -49,7 +49,7 @@ export { firebase, storage, database as default };
 //     const entries = [];
 //     snapshot.forEach((childSnapshot) => {
 //       entries.push({
-//         ...childSnapshot.val(), 
+//         ...childSnapshot.val(),
 //         id: childSnapshot.key
 //       });
 //     })
@@ -104,7 +104,7 @@ export { firebase, storage, database as default };
 //   console.log('Error');
 // } );
 // // Unsubscribes or detaches a callback previously attached with on().
-// database.ref().off(onValueChange); 
+// database.ref().off(onValueChange);
 
 // // Removes the data at this Database location.
 // database.ref('age')

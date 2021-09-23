@@ -1,11 +1,7 @@
-body.w-sidebar-open {
-    .main .content {
+.app-container {
+    &.w-sidebar-open .main .content {
         display: none;
     }
-}
-
-// this container is located in routers/AppRouter.js
-.app-container {
 
     .main {
         display: flex;
@@ -18,13 +14,13 @@ body.w-sidebar-open {
             background-color: $dark-3;
             position: relative;
             z-index: 0;
-      
-	        @include respond-above(lg) {
-              margin-left: $sidebar-width;
+
+            @include respond-above(lg) {
+                margin-left: $sidebar-width;
             }
 
             &:before {
-                content: '';
+                content: "";
                 background-color: $purple;
                 position: absolute;
                 top: 0;
@@ -36,20 +32,19 @@ body.w-sidebar-open {
 
             .page-title {
                 color: $light;
-				margin-top: 2rem;
-				.goback {
-					cursor: pointer;
-					.goback-icon {
-						font-size: 2.5rem;
-						margin-right: 1rem;
-					}
-					.goback-text {
-						font-family: $serif;
-						font-size: 3rem;
-					}
-				}
+                margin-top: 2rem;
+                .goback {
+                    cursor: pointer;
+                    .goback-icon {
+                        font-size: 2.5rem;
+                        margin-right: 1rem;
+                    }
+                    .goback-text {
+                        font-family: $serif;
+                        font-size: 3rem;
+                    }
+                }
             }
         }
     }
-    
 }

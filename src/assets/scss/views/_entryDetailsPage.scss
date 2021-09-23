@@ -1,126 +1,116 @@
 .entry-details {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: flex-start;
-	margin-top: 2rem;
-	h3 { 
-		margin-top:  0; 
-		@include text-purple-orange;
-	}
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 2rem;
+    h3 {
+        margin-top: 0;
+        @include text-purple-orange;
+    }
 
-	&__card {
-		display: flex;
-		flex-basis: 35%;
-		flex-direction: column;
-		align-items: center;
-		background-color: $dark-2;
-		padding: $padding-lg $padding-md;
-		border-radius: 3px;
-		@include respond-below(md) {
-			flex-basis: 100%;
-			margin-bottom: 2rem;
-		}
-	}
-	&__person, &__room {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
-	&__image {
-		background-size: cover;
-		width: 200px;
-		height: 200px;
-		border-radius: 200px;
+    &__card {
+        display: flex;
+        flex-basis: 35%;
+        flex-direction: column;
+        align-items: center;
+        background-color: $dark-2;
+        padding: $padding-lg $padding-md;
+        border-radius: 3px;
+        @include respond-below(md) {
+            flex-basis: 100%;
+            margin-bottom: 2rem;
+        }
+    }
+    &__person,
+    &__room {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    &__image {
+        background-size: cover;
+        width: 200px;
+        height: 200px;
+        border-radius: 200px;
+    }
+    &__control {
+        span {
+            cursor: pointer;
+            color: $light-2;
+            opacity: 0.4;
+            margin: 1rem;
+        }
+    }
+    &__name {
+        margin: 0;
+        margin-top: 3rem;
+    }
+    &__badge-wrapper {
+        margin-bottom: 2rem;
+        > a:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+    &__badge {
+        display: inline-block;
+        padding: 0.2rem 1rem 0.5rem 1rem;
+        border-radius: 3px;
 
-		// IE10+ doesn't support object-fit, so this is the fall back
-		@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-			width: 200px;
-			img {
-				display: block;
-				width: 100%;
-				height: auto;
-			}
-		}
-	}
-	&__control {
-		span {
-			cursor: pointer;
-			color: $light-2;
-			opacity: 0.4;
-			margin: 1rem;
-		}
-	}
-	&__name { 
-		margin: 0;
-		margin-top: 3rem;
-	}
-	&__badge-wrapper {
-		margin-bottom: 2rem;
-		> a:not(:last-child) {
-			margin-right: 1rem;
-		}
-	}
-	&__badge {
-		display: inline-block;
-		padding: 0.2rem 1rem 0.5rem 1rem;
-		border-radius: 3px;
+        &--atomic {
+            @include setBadgeStyle($atomic-color);
+        }
+        &--space {
+            @include setBadgeStyle($space-color);
+        }
+        &--synergy {
+            @include setBadgeStyle($synergy-color);
+        }
+        &--steve {
+            @include setBadgeStyle($steve-color);
+        }
+        &--cash {
+            @include setBadgeStyle($cash-color);
+        }
+        &--leadership {
+            @include setBadgeStyle($leadership-color);
+        }
+    }
+    &__position {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
 
-		&--atomic {
-			@include setBadgeStyle($atomic-color);
-		}
-		&--space {
-			@include setBadgeStyle($space-color);
-		}
-		&--synergy {
-			@include setBadgeStyle($synergy-color);
-		}
-		&--steve {
-			@include setBadgeStyle($steve-color);
-		}
-		&--cash {
-			@include setBadgeStyle($cash-color);
-		}
-		&--leadership {
-			@include setBadgeStyle($leadership-color);
-		}
-	}
-	&__position {
-		font-size: 1.4rem;
-		letter-spacing: 1px;
-		margin-top: 0;
-		margin-bottom: 2rem;
-	}
+    &__info {
+        flex-basis: 63.5%;
+        @include respond-below(md) {
+            flex-basis: 100%;
+            text-align: center;
+        }
+    }
+    &__general-info,
+    &__personal-info {
+        background-color: $dark-2;
+        padding: $padding-lg;
+        border-radius: 3px;
+    }
+    &__general-info {
+        margin-bottom: 2rem;
+    }
 
-	&__info {
-		flex-basis: 63.5%;
-		@include respond-below(md) {
-			flex-basis: 100%;
-			text-align: center;
-		}
-	}
-	&__general-info, &__personal-info {
-		background-color: $dark-2;
-		padding: $padding-lg;
-		border-radius: 3px;
-	}
-	&__general-info {
-		margin-bottom: 2rem;
-	}
-
-	.entry-field {
-		&:not(:last-child){
-			margin-bottom: 2rem;
-		}
-		&__title {
-			margin: 0;
-			margin-bottom: 0.5rem;
-		}
-		&__content {
-			margin: 0;
-		}
-	}
-
-
+    .entry-field {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+        &__title {
+            margin: 0;
+            margin-bottom: 0.5rem;
+        }
+        &__content {
+            margin: 0;
+        }
+    }
 }
