@@ -1,71 +1,92 @@
 @font-face {
-	font-family: 'BrandonText-Regular';
-	font-weight: normal;
-	src: local('Brandon Text'), local('Brandon Text'),
-		 url('../fonts/BrandonText-Regular.otf') format('otf'),
-		 url('../fonts/BrandonText-Regular.woff') format('woff'),
-		 url('../fonts/BrandonText-Regular.woff2') format('woff2');
+    font-family: "BrandonText-Regular";
+    font-weight: normal;
+    src: local("Brandon Text"), local("Brandon Text"), url("../fonts/BrandonText-Regular.otf") format("otf"),
+        url("../fonts/BrandonText-Regular.woff") format("woff"), url("../fonts/BrandonText-Regular.woff2") format("woff2");
 }
 @font-face {
-	font-family: 'BrandonText-Bold';
-	font-weight: normal;
-	src: local('Brandon Text'), local('Brandon Text'),
-		 url('../fonts/BrandonText-Bold.otf') format('otf'),
-		 url('../fonts/BrandonText-Bold.woff') format('woff'),
-		 url('../fonts/BrandonText-Bold.woff2') format('woff2');
+    font-family: "BrandonText-Bold";
+    font-weight: normal;
+    src: local("Brandon Text"), local("Brandon Text"), url("../fonts/BrandonText-Bold.otf") format("otf"),
+        url("../fonts/BrandonText-Bold.woff") format("woff"), url("../fonts/BrandonText-Bold.woff2") format("woff2");
 }
 @font-face {
-	font-family: 'LubalinGraphStd-Bold';
-	font-weight: normal;
-	src: local('LubalinGraphStd-Bold'), local('LubalinGraphStd-Bold'),
-		 url('../fonts/LubalinGraphStd-Bold.otf') format('otf'),
-		 url('../fonts/LubalinGraphStd-Bold.woff') format('woff'),
-		 url('../fonts/LubalinGraphStd-Bold.woff2') format('woff2');
+    font-family: "LubalinGraphStd-Bold";
+    font-weight: normal;
+    src: local("LubalinGraphStd-Bold"), local("LubalinGraphStd-Bold"), url("../fonts/LubalinGraphStd-Bold.otf") format("otf"),
+        url("../fonts/LubalinGraphStd-Bold.woff") format("woff"), url("../fonts/LubalinGraphStd-Bold.woff2") format("woff2");
 }
 
 body {
-	font-family: $sans-serif;
-	font-size: 1.6rem;
-	font-weight: normal;
-	font-style: normal;
-	color: $light-2;
+    font-family: $sans-serif;
+    font-size: 1.6rem;
+    font-weight: normal;
+    font-style: normal;
+    color: $light-2;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: $serif;
-	font-weight: normal;
-	font-style: normal;
-	text-transform: lowercase;
-	margin: 1.5rem 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $serif;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: lowercase;
+    margin: 1.5rem 0;
 }
 
-h1 { font-size: 4.6rem; }
-h2 { font-size: 3.4rem; }
-h3 { font-size: 2.6rem; }
-h4 { font-size: 1.8rem; }
-p { font-size: 1.8rem; }
+h1 {
+    font-size: 4.6rem;
+}
+h2 {
+    font-size: 3.4rem;
+}
+h3 {
+    font-size: 2.6rem;
+}
+h4 {
+    font-size: 1.8rem;
+}
+p {
+    font-size: 1.8rem;
+}
 @include respond-below(md) {
-	h1 { font-size: 4rem; }
-	h2 { font-size: 3rem; }
-	h3 { font-size: 2.4rem; }
-	h4 { font-size: 1.6rem; }
-	p { font-size: 1.6rem; }
+    h1 {
+        font-size: 4rem;
+    }
+    h2 {
+        font-size: 3rem;
+    }
+    h3 {
+        font-size: 2.4rem;
+    }
+    h4 {
+        font-size: 1.6rem;
+    }
+    p {
+        font-size: 1.6rem;
+    }
 }
 
 a {
-	text-decoration: none;
-	color: $light-2;
-	cursor: pointer;
+    text-decoration: none;
+    color: $light-2;
+    cursor: pointer;
 
-	&:visited, &:hover, &:focus {
-		text-decoration: none;
-		color: $light-2;
-	}
+    &:visited,
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: $light-2;
+    }
 }
 
 .text-purple-orange {
-	@include text-purple-orange;
+    @include text-purple-orange;
 }
 .purple-light {
-	color: $purple-light;
+    color: $purple-light;
 }

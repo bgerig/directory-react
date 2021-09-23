@@ -1,42 +1,42 @@
-
 // Colors
 $purple-gradient: linear-gradient(-90deg, #9d23d0 0%, #6713d2 68%);
 $purple: #6713d2;
 $purple-light: #b656de;
 $light: #f7f7f7;
 $light-2: #cfcfcf;
-$dark: #55565A;
+$dark: #55565a;
 $dark-2: #373f46;
-$dark-3: #30373E;
+$dark-3: #30373e;
 $black: #333333;
 
 $atomic-color: #fd64ac;
-$space-color: #FEE110;
+$space-color: #fee110;
 $synergy-color: #2ed9c3;
 $steve-color: #f0a440;
 $cash-color: #6ba8ee;
 $leadership-color: #a9cbf1;
 
 @mixin text-purple-orange {
-	background: linear-gradient(to left bottom, #d778ff 40%, #a67fd8 92%);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+    background: linear-gradient(to left bottom, #d778ff 40%, #a67fd8 92%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @mixin setBadgeStyle($team-color) {
-	border: 1px solid $team-color;
-	border-color: $team-color;
-	color: $team-color;
+    border: 1px solid $team-color;
+    border-color: $team-color;
+    color: $team-color;
 }
 
-$shadow: 3px 2px 29px 2px rgba(0,0,0,0.5);
-$shadow-sm: 0px 0px 20px 0px rgba(0,0,0,0.25);
-$shadow-sm-2: 1px 0px 20px rgba(0,0,0,0.08);
+$shadow: 3px 2px 29px 2px rgba(0, 0, 0, 0.5);
+$shadow-sm: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+$shadow-sm-2: 1px 0px 20px rgba(0, 0, 0, 0.08);
 
 // Fonts
-$serif: 'LubalinGraphStd-Bold', Merriweather, Georgia, "Times New Roman", serif;
-$sans-serif: 'BrandonText-Regular', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$serif: "LubalinGraphStd-Bold", Merriweather, Georgia, "Times New Roman", serif;
+$sans-serif: "BrandonText-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
 
 $header-height: 7rem;
 $sidebar-width: 25rem;

@@ -1,115 +1,118 @@
 .entry-form {
-	h3 { 
-		margin-top: 0; 
-		@include text-purple-orange;
-	}
+    h3 {
+        margin-top: 0;
+        @include text-purple-orange;
+    }
 
-	.input-group {
-		&:not(:last-child){
-			margin: 2rem 0;
-		}
-		&::last-child {
-			margin-top: 2rem;
-		}
-	}
+    .input-group {
+        &:not(:last-child) {
+            margin: 2rem 0;
+        }
+        &::last-child {
+            margin-top: 2rem;
+        }
+    }
 
-	&__entry-type, &__room {
-		border-radius: 3px;
-		background-color: $dark-2;
-		padding: $padding-lg;
-		margin-bottom: 2rem;
-	}
+    &__entry-type,
+    &__room {
+        border-radius: 3px;
+        background-color: $dark-2;
+        padding: $padding-lg;
+        margin-bottom: 2rem;
+    }
 
-	&__person {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		margin-bottom: 2rem;
-	}
+    &__person {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
 
-	// Styles overrides for the React-Select library
-	// https://react-select.com/styles
-	.react-select-container {
-		.react-select {
-			&__control {
-				background-color: transparent;
-				border-color: #465059;
-				border-width: 1.5px;
-				padding: 0.5rem 1rem;
-				box-shadow: none;
-			}
-			&__multi-value {
-				padding: 2px;
-				&__label {
-					font-size: 14px;
-				}
-				&__remove {
-					color: #465059;
-				}
-			}
-			&__indicator {
-				&:hover {
-					color: #cccccc;
-				}
-			}
-			&__value-container {
-				padding: 0;
-			}
-			&__menu {
-				background-color: #465059;
-			}
-			&__option {
-				&--is-focused {
-					background-color: #373e44;
-				}
-			}
-		}
-	}
+    // Styles overrides for the React-Select library
+    // https://react-select.com/styles
+    .react-select-container {
+        .react-select {
+            &__control {
+                background-color: transparent;
+                border-color: #465059;
+                border-width: 1.5px;
+                padding: 0.5rem 1rem;
+                box-shadow: none;
+            }
+            &__multi-value {
+                padding: 2px;
+                &__label {
+                    font-size: 14px;
+                }
+                &__remove {
+                    color: #465059;
+                }
+            }
+            &__indicator {
+                &:hover {
+                    color: #cccccc;
+                }
+            }
+            &__value-container {
+                padding: 0;
+            }
+            &__menu {
+                background-color: #465059;
+            }
+            &__option {
+                &--is-focused {
+                    background-color: #373e44;
+                }
+            }
+        }
+    }
 
-	&__general-info {
-		flex-basis: 49.5%;
-		border-radius: 3px;
-		background-color: $dark-2;
-		padding: $padding-lg;
-		@include respond-below(md) {
-			flex-basis: 100%;
-			flex-grow: 1;
-			margin-bottom: 2rem;
-		}
-	}
-	&__personal-info {
-		flex-basis: 49%;
-		border-radius: 3px;
-		background-color: $dark-2;
-		padding: $padding-lg;
-		@include respond-below(md) {
-			flex-basis: 100%;
-			flex-grow: 1;
-		}
-	}
-	&__photo {
-		width: 49%;
-		border-radius: 3px;
-		background-color: $dark-2;
-		padding: $padding-lg;
-		margin-bottom: 2rem;
-		@include respond-below(lg) {
-			width: 100%;
-		}
-		h3 { margin-bottom: 3rem; }
-	}
+    &__general-info {
+        flex-basis: 49.5%;
+        border-radius: 3px;
+        background-color: $dark-2;
+        padding: $padding-lg;
+        @include respond-below(md) {
+            flex-basis: 100%;
+            flex-grow: 1;
+            margin-bottom: 2rem;
+        }
+    }
+    &__personal-info {
+        flex-basis: 49%;
+        border-radius: 3px;
+        background-color: $dark-2;
+        padding: $padding-lg;
+        @include respond-below(md) {
+            flex-basis: 100%;
+            flex-grow: 1;
+        }
+    }
+    &__photo {
+        width: 49%;
+        border-radius: 3px;
+        background-color: $dark-2;
+        padding: $padding-lg;
+        margin-bottom: 2rem;
+        @include respond-below(lg) {
+            width: 100%;
+        }
+        h3 {
+            margin-bottom: 3rem;
+        }
+    }
 
-	&__submit-btn {
-		@include respond-below(md) {
-			width: 100%;
-		}
-		
-	}
+    &__submit-btn {
+        @include respond-below(md) {
+            width: 100%;
+        }
+    }
 
-	&__alerts {
-		margin-top: 2rem;
-	}
-	&__error, &__success {
-		font-size: 1.8rem;
-	}
+    &__alerts {
+        margin-top: 2rem;
+    }
+    &__error,
+    &__success {
+        font-size: 1.8rem;
+    }
 }
