@@ -3,7 +3,7 @@ import entries from '../data/testData.js';
 
 test('should filter by text value', () => {
 	const result = getVisibleEntries(entries, {
-		text: 'arc',
+		text: 'atom',
 		sortBy: 'firstName'
 	})
 	expect(result).toEqual([entries[2]]);
