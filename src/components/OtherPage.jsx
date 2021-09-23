@@ -1,8 +1,8 @@
-import React from 'react';
-import EntryList from './EntryList';
-import EntryListFilters from './EntryListFilters';
-import Header from './Header';
-import Sidebar from './Sidebar';
+import React from "react";
+import EntryList from "./EntryList";
+import EntryListFilters from "./EntryListFilters";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
 
 const OtherPage = (props) => (
     <div className="app-container">
@@ -14,9 +14,10 @@ const OtherPage = (props) => (
                     <h2>Other</h2>
                 </div>
                 <EntryListFilters type="other" />
-                <EntryList type="other" /> {/* we pass 'type' as a prop in order to render entries based on entryType (person, room, other)  */}
+                <EntryList type="other" />
             </div>
         </div>
     </div>
 );
+
 export default OtherPage;
