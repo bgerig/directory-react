@@ -17,7 +17,7 @@ const EntryList = (props) => {
         }
 
         return () => dispatch(setTextFilter({ text: "" }));
-    }, [team, type, dispatch]);
+    }, [team, type]);
 
     return (
         <div className="entry-list">
