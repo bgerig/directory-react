@@ -1,24 +1,30 @@
-import { firebase } from "../firebase/firebase";
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+
+import { auth } from '../firebase/firebase';
 
 export const login = (uid) => ({
-    type: "LOGIN",
-    uid: uid,
+  type: 'LOGIN',
+  uid: uid,
+});
+
+export const logout = () => ({
+  type: 'LOGOUT',
 });
 
 export const startLogin = (email, password) => {
-    return () => {
-        // we use 'return' so it returns a promise chain
-        return firebase.auth().signInWithEmailAndPassword(email, password);
-    };
+  return async (dispatch) => {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    dispatch(login(userCredential.user.uid));
+  };
 };
 
-export const logout = () => ({
-    type: "LOGOUT",
-});
-
 export const startLogout = () => {
-    return () => {
-        // we use 'return' so it returns a promise chain
-        return firebase.auth().signOut();
-    };
+  return async (dispatch) => {
+    try {
+      await signOut(auth);
+      dispatch(logout());
+    } catch (error) {
+      console.error('Logout failed: ', error.message);
+    }
+  };
 };

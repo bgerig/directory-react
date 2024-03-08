@@ -1,23 +1,27 @@
-import React from "react";
-import { connect } from "react-redux";
-import { startEditEntry } from "../actions/entries";
-import EntryForm from "./EntryForm";
-import Layout from "./Layout";
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams, Navigate } from 'react-router-dom';
 
-const EditEntryPage = (props) => {
-    const { dispatch, entry } = props;
+import { startEditEntry } from '../actions/entries';
+import { EntryForm } from './EntryForm';
+import { Layout } from './Layout';
 
-    return (
-        <Layout title={`Editing ${entry.firstName} ${entry.lastName}`}>
-            <EntryForm entry={entry} onSubmit={(updatedEntry) => dispatch(startEditEntry({ id: entry.id, updates: updatedEntry }))} />
-        </Layout>
-    );
+export const EditEntryPage = () => {
+  const { id } = useParams();
+
+  const dispatch = useDispatch();
+  const entry = useSelector((state) => state.entries.find((entry) => entry.id === id));
+
+  if (!entry) {
+    return <Navigate to="/" replace />;
+  }
+
+  const handleOnSubmit = (updatedEntry) => {
+    dispatch(startEditEntry({ id: entry.id, updates: updatedEntry }));
+  };
+
+  return (
+    <Layout title={`Editing ${entry.firstName} ${entry.lastName}`}>
+      <EntryForm entry={entry} onSubmit={handleOnSubmit} />
+    </Layout>
+  );
 };
-
-const mapStateToProps = (state, props) => {
-    return {
-        entry: state.entries.find((entry) => entry.id === props.match.params.id),
-    };
-};
-
-export default connect(mapStateToProps)(EditEntryPage);

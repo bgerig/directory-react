@@ -33,11 +33,11 @@ $hamburger-types: (spin) !default;
 
 // Base Hamburger (We need this)
 // ==================================================
-@import "base";
+@import 'base';
 
 // Hamburger types
 // ==================================================
-@import "types/spin";
+@import 'types/spin';
 
 // ==================================================
 // Cooking up additional types:

@@ -1,110 +1,110 @@
 .entry-list-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: $dark-2;
+  padding: $padding-lg;
+  border-radius: 3px;
+  &:not(:last-child) {
+    margin: $margin-md 0;
+  }
+  &:last-child {
+    margin-top: $margin-md;
+  }
+  @include respond-below(sm-2) {
+    flex-direction: column;
+    padding: $padding-xl $padding-md;
+  }
+
+  &__image {
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 200px;
+  }
+
+  &__person,
+  &__room {
+    flex: 1 0 350px;
+    margin: 0 3rem;
+    @include respond-below(sm-2) {
+      flex-direction: column;
+      flex: auto;
+      margin: 2rem 0;
+      text-align: center;
+    }
+  }
+
+  &__name {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    background-color: $dark-2;
-    padding: $padding-lg;
-    border-radius: 3px;
-    &:not(:last-child) {
-        margin: $margin-md 0;
-    }
-    &:last-child {
-        margin-top: $margin-md;
+    margin: 0 0 1rem 0;
+    h3 {
+      margin: 0;
     }
     @include respond-below(sm-2) {
-        flex-direction: column;
-        padding: $padding-xl $padding-md;
+      flex-direction: column;
+      h3 {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+  &__position {
+    margin: 0;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+  }
+
+  &__badge {
+    display: inline-block;
+    margin-left: 1.25rem;
+    margin-bottom: 0.75rem;
+    padding: 0.2rem 1rem 0.5rem 1rem;
+    border-radius: 3px;
+    @include respond-below(sm-2) {
+      margin-left: 0;
     }
 
-    &__image {
-        background-size: cover;
-        width: 100px;
-        height: 100px;
-        border-radius: 200px;
+    &--atomic {
+      @include setBadgeStyle($atomic-color);
     }
+    &--space {
+      @include setBadgeStyle($space-color);
+    }
+    &--synergy {
+      @include setBadgeStyle($synergy-color);
+    }
+    &--steve {
+      @include setBadgeStyle($steve-color);
+    }
+    &--cash {
+      @include setBadgeStyle($cash-color);
+    }
+    &--leadership {
+      @include setBadgeStyle($leadership-color);
+    }
+  }
 
-    &__person,
-    &__room {
-        flex: 1 0 350px;
-        margin: 0 3rem;
-        @include respond-below(sm-2) {
-            flex-direction: column;
-            flex: auto;
-            margin: 2rem 0;
-            text-align: center;
-        }
+  &__extension {
+    h3,
+    h3 a {
+      color: $purple-light;
+      margin: 0;
+      margin-top: 1rem;
     }
+  }
 
-    &__name {
-        display: flex;
-        align-items: center;
-        margin: 0 0 1rem 0;
-        h3 {
-            margin: 0;
-        }
-        @include respond-below(sm-2) {
-            flex-direction: column;
-            h3 {
-                margin-bottom: 1rem;
-            }
-        }
+  &__control {
+    margin-left: 2rem;
+    @include respond-below(sm-2) {
+      margin-left: 0;
+      margin-top: 2rem;
     }
-    &__position {
-        margin: 0;
-        font-size: 1.4rem;
-        letter-spacing: 1px;
+    span {
+      cursor: pointer;
+      color: $light-2;
+      opacity: 0.4;
+      margin: 1rem;
     }
-
-    &__badge {
-        display: inline-block;
-        margin-left: 1.25rem;
-        margin-bottom: 0.75rem;
-        padding: 0.2rem 1rem 0.5rem 1rem;
-        border-radius: 3px;
-        @include respond-below(sm-2) {
-            margin-left: 0;
-        }
-
-        &--atomic {
-            @include setBadgeStyle($atomic-color);
-        }
-        &--space {
-            @include setBadgeStyle($space-color);
-        }
-        &--synergy {
-            @include setBadgeStyle($synergy-color);
-        }
-        &--steve {
-            @include setBadgeStyle($steve-color);
-        }
-        &--cash {
-            @include setBadgeStyle($cash-color);
-        }
-        &--leadership {
-            @include setBadgeStyle($leadership-color);
-        }
-    }
-
-    &__extension {
-        h3,
-        h3 a {
-            color: $purple-light;
-            margin: 0;
-            margin-top: 1rem;
-        }
-    }
-
-    &__control {
-        margin-left: 2rem;
-        @include respond-below(sm-2) {
-            margin-left: 0;
-            margin-top: 2rem;
-        }
-        span {
-            cursor: pointer;
-            color: $light-2;
-            opacity: 0.4;
-            margin: 1rem;
-        }
-    }
+  }
 }

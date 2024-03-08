@@ -1,45 +1,45 @@
 .header {
-    display: flex;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    padding: 0 $padding-lg;
-    width: 100%;
-    height: $header-height;
-    background: $purple;
-    background-image: $purple-gradient;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding: 0 $padding-lg;
+  width: 100%;
+  height: $header-height;
+  background: $purple;
+  background-image: $purple-gradient;
+  color: $light;
+  box-shadow: $shadow-sm;
+  z-index: 10;
+
+  &__toggle {
+    font-size: 2rem;
     color: $light;
-    box-shadow: $shadow-sm;
-    z-index: 10;
+    margin-right: $margin-lg;
+    z-index: 20;
 
-    &__toggle {
-        font-size: 2rem;
-        color: $light;
-        margin-right: $margin-lg;
-        z-index: 20;
-
-        @include respond-above(lg) {
-            &.hamburger {
-                display: none;
-            }
-        }
+    @include respond-above(lg) {
+      &.hamburger {
+        display: none;
+      }
     }
+  }
 
-    &__admin {
-        margin-left: auto;
-        .btn {
-            padding: 1rem 2rem;
-        }
+  &__admin {
+    margin-left: auto;
+    .btn {
+      padding: 1rem 2rem;
     }
+  }
 
-    &__logo {
-        max-width: 50px;
-        @include respond-below(lg) {
-            max-width: 35px;
-        }
-        img {
-            width: 100%;
-            height: auto;
-        }
+  &__logo {
+    max-width: 50px;
+    @include respond-below(lg) {
+      max-width: 35px;
     }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }

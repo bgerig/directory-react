@@ -1,4 +1,6 @@
-import database, { storage } from "../firebase/firebase";
+import { database, storage } from '../firebase/firebase';
+import { ref as databaseRef, push, remove, get, set, child, update } from 'firebase/database';
+import { ref as storageRef, deleteObject } from 'firebase/storage';
 
 /*
 // How the action generators work:
@@ -19,136 +21,147 @@ import database, { storage } from "../firebase/firebase";
 */
 
 export const addEntry = (entry) => ({
-    type: "ADD_ENTRY",
-    entry: entry,
+  type: 'ADD_ENTRY',
+  entry: entry,
 });
 
 // start the process of dispatching an object to the Redux store,
 // it returns a function (instead of an object) that gets called internally by redux, and it gets called with 'dispatch' as a parameter so we can use it inside of the function.
 // thunk is needed for this
 export const startAddEntry = (entry = {}) => {
-    const {
-        entryType = "",
-        otherName = "",
-        roomName = "",
-        firstName = "",
-        lastName = "",
-        team = "",
-        discipline = "",
-        position = "",
-        phoneNumber = "",
-        phoneExtension = "",
-        email = "",
-        hometown = "",
-        college = "",
-        spouse = "",
-        children = "",
-        imageId = "",
-        imageUrl = "",
-    } = entry;
+  const {
+    entryType = '',
+    otherName = '',
+    roomName = '',
+    firstName = '',
+    lastName = '',
+    team = '',
+    discipline = '',
+    position = '',
+    phoneNumber = '',
+    phoneExtension = '',
+    email = '',
+    hometown = '',
+    college = '',
+    spouse = '',
+    children = '',
+    imageId = '',
+    imageUrl = '',
+  } = entry;
 
-    return (dispatch) => {
-        const entry = {
-            entryType,
-            otherName,
-            roomName,
-            firstName,
-            lastName,
-            team,
-            discipline,
-            position,
-            phoneNumber,
-            phoneExtension,
-            email,
-            hometown,
-            college,
-            spouse,
-            children,
-            imageId,
-            imageUrl,
-        };
-
-        // Push entry to Firebase
-        // we 'return' the call to the database call so we can return a promise chain for Jest testing
-        return database
-            .ref("entries")
-            .push(entry)
-            .then((ref) => {
-                dispatch(
-                    addEntry({
-                        id: ref.key,
-                        ...entry,
-                    })
-                );
-            });
+  return async (dispatch) => {
+    const entry = {
+      entryType,
+      otherName,
+      roomName,
+      firstName,
+      lastName,
+      team,
+      discipline,
+      position,
+      phoneNumber,
+      phoneExtension,
+      email,
+      hometown,
+      college,
+      spouse,
+      children,
+      imageId,
+      imageUrl,
     };
+
+    const entriesRef = databaseRef(database, 'entries');
+
+    try {
+      // Create a new reference for a child location with a unique key and obtain its reference.
+      const newEntryRef = push(entriesRef);
+
+      // Set the data to the newly created reference.
+      await set(newEntryRef, entry);
+
+      // Dispatch an action with the new entry, including the uniquely generated key.
+      dispatch(
+        addEntry({
+          id: newEntryRef.key,
+          ...entry,
+        }),
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
 };
 
 export const removeEntry = ({ id } = {}) => ({
-    type: "REMOVE_ENTRY",
-    id,
+  type: 'REMOVE_ENTRY',
+  id,
 });
 
 export const startRemoveEntry = ({ id, imageId }) => {
-    return (dispatch) => {
-        return database
-            .ref(`entries/${id}`)
-            .remove()
-            .then((snapshot) => {
-                if (imageId !== "") {
-                    // deletes photo from firebase storage first
-                    storage
-                        .ref("photos")
-                        .child(imageId)
-                        .delete()
-                        .then(() => {
-                            dispatch(removeEntry({ id }));
-                        });
-                } else {
-                    dispatch(removeEntry({ id }));
-                }
-            });
-    };
+  return async (dispatch) => {
+    const entryRef = databaseRef(database, `entries/${id}`);
+
+    try {
+      await remove(entryRef);
+
+      if (imageId !== '') {
+        const photoRef = storageRef(storage, `photos/${imageId}`);
+        await deleteObject(photoRef);
+      }
+
+      dispatch(removeEntry({ id }));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 };
 
 export const editEntry = ({ id, updates = {} }) => ({
-    type: "EDIT_ENTRY",
-    id,
-    updates,
+  type: 'EDIT_ENTRY',
+  id,
+  updates,
 });
 
 export const startEditEntry = ({ id, updates = {} }) => {
-    return (dispatch) => {
-        return database
-            .ref(`entries/${id}`)
-            .update(updates)
-            .then((snapshot) => {
-                dispatch(editEntry({ id, updates }));
-            });
-    };
+  return async (dispatch) => {
+    const entryRef = databaseRef(database, `entries/${id}`);
+
+    try {
+      await update(entryRef, updates);
+      dispatch(editEntry({ id, updates }));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 };
 
 export const setEntries = (entries) => ({
-    type: "SET_ENTRIES",
-    entries,
+  type: 'SET_ENTRIES',
+  entries,
 });
 
 export const startSetEntries = () => {
-    return (dispatch) => {
-        return database
-            .ref("entries")
-            .once("value")
-            .then((snapshot) => {
-                const entries = [];
+  return async (dispatch) => {
+    const dbRef = databaseRef(database);
 
-                snapshot.forEach((childSnapshot) => {
-                    entries.push({
-                        id: childSnapshot.key,
-                        ...childSnapshot.val(),
-                    });
-                });
+    try {
+      const snapshot = await get(child(dbRef, 'entries'));
+      const entries = [];
 
-                dispatch(setEntries(entries));
-            });
-    };
+      if (snapshot.exists()) {
+        snapshot.forEach((childSnapshot) => {
+          entries.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val(),
+          });
+        });
+      } else {
+        console.log('No data available');
+      }
+
+      dispatch(setEntries(entries));
+    } catch (error) {
+      console.error(error);
+    }
+  };
 };
