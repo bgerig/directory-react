@@ -22,7 +22,7 @@ export const getVisibleEntries = (entries, filters, entryType, team) => {
   // filter entries
   visibleEntries = entries.filter((entry) => {
     // if there is no entry type specified then get all entry types
-    const matchesEntryType = entryType ? entry.entryType === entryType : true;
+    const matchesEntryType = !entryType || entry.entryType === entryType;
 
     // check if various properties of the entry match the query string
     const matchesQuery =

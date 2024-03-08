@@ -23,7 +23,6 @@ library.add(faCheckSquare, faBars, faSearch, faCaretDown, faTrashAlt, faEdit, fa
 
 export const store = configureStore();
 
-// render loading screen while the entries are fetched from the database
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
